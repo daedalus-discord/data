@@ -7,6 +7,7 @@ export default {
         {
             id: "moderation",
             name: "Moderation",
+            icon: "shield",
             description:
                 "Moderation features for your moderators. Automated tools are in other modules such as the automod module.",
             commands: ["ban"],
@@ -14,8 +15,10 @@ export default {
     ] as {
         id: string;
         name: string;
-        commands: string[];
+        icon?: string;
         description?: string;
+        commands: string[];
+        disable?: boolean;
     }[],
     commands: {
         modules: { name: "Manage Modules", permissions: "admin" },
@@ -35,6 +38,7 @@ export default {
             permissions?: "owner" | "admin" | keyof typeof PermissionFlagsBits | (keyof typeof PermissionFlagsBits)[];
             description?: string;
             bypass?: boolean;
+            disable?: boolean;
         }
     >,
 };
