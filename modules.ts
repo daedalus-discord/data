@@ -1,3 +1,5 @@
+import type { PermissionFlagsBits } from "discord.js";
+
 export default {
     modules: [
         { name: "modules", commands: ["modules"] },
@@ -26,7 +28,7 @@ export default {
     } satisfies Record<
         string,
         {
-            permissions?: string | string[];
+            permissions?: "owner" | "admin" | keyof typeof PermissionFlagsBits | (keyof typeof PermissionFlagsBits)[];
             description?: string;
             bypass?: boolean;
         }
