@@ -11,7 +11,7 @@ export default {
                 "Moderation features for your moderators. Automated tools are in other modules such as the automod module.",
             commands: ["ban"],
         },
-    ] satisfies {
+    ] as {
         id: string;
         name: string;
         commands: string[];
@@ -28,7 +28,7 @@ export default {
             description: "Ban a user from the server, even if they are not in the server.",
             permissions: "BanMembers",
         },
-    } satisfies Record<
+    } as Record<
         string,
         {
             name?: string;
