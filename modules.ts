@@ -1,5 +1,3 @@
-import { PermissionFlagsBits, type PermissionResolvable } from "discord.js";
-
 export default {
     modules: [
         { name: "modules", commands: ["modules"] },
@@ -23,12 +21,12 @@ export default {
         "admin/eval": { permissions: "owner" },
         ban: {
             description: "Ban a user from the server, even if they are not in the server.",
-            permissions: PermissionFlagsBits.BanMembers | PermissionFlagsBits.ManageChannels,
+            permissions: "BanMembers",
         },
     } satisfies Record<
         string,
         {
-            permissions?: string | PermissionResolvable;
+            permissions?: string | string[];
             description?: string;
             bypass?: boolean;
         }
