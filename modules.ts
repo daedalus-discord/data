@@ -22,11 +22,8 @@ export default {
         "admin/demote": { permissions: "owner" },
         "admin/eval": { permissions: "owner" },
         ban: {
-            description:
-                "Ban a user from the server, even if they are not in the server.",
-            permissions:
-                PermissionFlagsBits.BanMembers |
-                PermissionFlagsBits.ManageChannels,
+            description: "Ban a user from the server, even if they are not in the server.",
+            permissions: PermissionFlagsBits.BanMembers | PermissionFlagsBits.ManageChannels,
         },
     } satisfies Record<
         string,
