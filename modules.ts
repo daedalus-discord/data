@@ -22,8 +22,8 @@ export default {
         }
     >,
     commands: {
-        modules: { name: "Manage Modules", permissions: "admin" },
-        admin: { name: "Admin Controls", permissions: "admin" },
+        modules: { name: "Manage Modules", permissions: "admin", ghost: true },
+        admin: { name: "Admin Controls", permissions: "admin", ghost: true },
         "admin/promote": { permissions: "owner" },
         "admin/demote": { permissions: "owner" },
         "admin/eval": { permissions: "owner" },
@@ -44,6 +44,7 @@ export default {
             description?: string;
             bypass?: boolean;
             disable?: boolean;
+            ghost?: boolean;
         }
     >,
 };
