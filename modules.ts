@@ -29,14 +29,18 @@ export default {
         "admin/eval": { permissions: "owner" },
         ban: {
             name: "Ban User",
+            icon: "gavel",
             description: "Ban a user from the server, even if they are not in the server.",
             permissions: "BanMembers",
+            self_permissions: "BanMembers",
         },
     } as Record<
         string,
         {
             name?: string;
+            icon?: string;
             permissions?: "owner" | "admin" | keyof typeof PermissionFlagsBits | (keyof typeof PermissionFlagsBits)[];
+            self_permissions?: keyof typeof PermissionFlagsBits | (keyof typeof PermissionFlagsBits)[];
             description?: string;
             bypass?: boolean;
             disable?: boolean;
