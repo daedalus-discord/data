@@ -24,9 +24,6 @@ export default {
     commands: {
         modules: { name: "Manage Modules", permissions: "admin", ghost: true },
         admin: { name: "Admin Controls", permissions: "admin", ghost: true },
-        "admin/promote": { permissions: "owner" },
-        "admin/demote": { permissions: "owner" },
-        "admin/eval": { permissions: "owner" },
         ban: {
             name: "Ban User",
             icon: "gavel",
@@ -39,7 +36,7 @@ export default {
         {
             name?: string;
             icon?: string;
-            permissions?: "owner" | "admin" | keyof typeof PermissionFlagsBits | (keyof typeof PermissionFlagsBits)[];
+            permissions?: "admin" | keyof typeof PermissionFlagsBits | (keyof typeof PermissionFlagsBits)[];
             self_permissions?: keyof typeof PermissionFlagsBits | (keyof typeof PermissionFlagsBits)[];
             description?: string;
             bypass?: boolean;
