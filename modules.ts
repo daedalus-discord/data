@@ -27,6 +27,7 @@ export default {
             name: "Settings",
             icon: "settings",
             permissions: "ManageGuild",
+            self_permissions: "ManageWebhooks",
             description: "Manage bot settings.",
         },
     } as Record<
