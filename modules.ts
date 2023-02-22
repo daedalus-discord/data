@@ -16,6 +16,12 @@ export default {
             description: "Welcome incoming members to the server.",
             commands: [],
         },
+        "supporter-announcements": {
+            name: "Supporter Announcements",
+            icon: "campaign",
+            description: "Announce new boosters and other server supporters by role.",
+            commands: [],
+        },
     } as Record<
         string,
         {
