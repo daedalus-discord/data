@@ -10,6 +10,12 @@ export default {
             description: "Core commands for managing and configuring the bot.",
             commands: ["settings"],
         },
+        welcome: {
+            name: "Welcome",
+            icon: "waving_hand",
+            description: "Welcome incoming members to the server.",
+            commands: [],
+        },
     } as Record<
         string,
         {
