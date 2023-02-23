@@ -1,4 +1,30 @@
-import type { Channel, Guild, GuildMember, Message, Role, User } from "discord.js";
+import type { Channel, Guild, GuildMember, Message, PermissionFlagsBits, Role, User } from "discord.js";
+
+export type ModuleData = {
+    modules: Record<
+        string,
+        {
+            name: string;
+            icon?: string;
+            description?: string;
+            commands: string[];
+            disable?: boolean;
+        }
+    >;
+    commands: Record<
+        string,
+        {
+            name?: string;
+            icon?: string;
+            permissions?: "admin" | keyof typeof PermissionFlagsBits | (keyof typeof PermissionFlagsBits)[];
+            self_permissions?: keyof typeof PermissionFlagsBits | (keyof typeof PermissionFlagsBits)[];
+            description?: string;
+            bypass?: boolean;
+            disable?: boolean;
+            ghost?: boolean;
+        }
+    >;
+};
 
 export type CustomMessageComponent = (string | number | boolean | CustomMessageComponent)[];
 export type Interpolation = (string | CustomMessageComponent)[];

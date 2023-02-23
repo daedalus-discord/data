@@ -1,4 +1,4 @@
-import type { PermissionFlagsBits } from "discord.js";
+import { ModuleData } from "./types.js";
 
 export default {
     modules: {
@@ -28,16 +28,7 @@ export default {
             description: "Server experience system to reward active members.",
             commands: ["top", "rank", "mee6-import", "reset-xp"],
         },
-    } as Record<
-        string,
-        {
-            name: string;
-            icon?: string;
-            description?: string;
-            commands: string[];
-            disable?: boolean;
-        }
-    >,
+    },
     commands: {
         modules: { name: "Manage Modules", permissions: "admin", ghost: true },
         admin: { name: "Admin Controls", permissions: "admin", ghost: true },
@@ -70,17 +61,5 @@ export default {
             permissions: "ManageGuild",
             description: "Reset a user's XP irreversibly.",
         },
-    } as Record<
-        string,
-        {
-            name?: string;
-            icon?: string;
-            permissions?: "admin" | keyof typeof PermissionFlagsBits | (keyof typeof PermissionFlagsBits)[];
-            self_permissions?: keyof typeof PermissionFlagsBits | (keyof typeof PermissionFlagsBits)[];
-            description?: string;
-            bypass?: boolean;
-            disable?: boolean;
-            ghost?: boolean;
-        }
-    >,
-};
+    },
+} as ModuleData;
