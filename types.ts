@@ -6,6 +6,7 @@ export type ModuleData = {
         {
             name: string;
             icon?: string;
+            self_permissions?: keyof typeof PermissionFlagsBits | (keyof typeof PermissionFlagsBits)[];
             description?: string;
             commands: string[];
             disable?: boolean;

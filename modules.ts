@@ -1,4 +1,4 @@
-import { ModuleData } from "./types.js";
+import type { ModuleData } from "./types.js";
 
 export default {
     modules: {
@@ -27,6 +27,13 @@ export default {
             icon: "sort",
             description: "Server experience system to reward active members.",
             commands: ["top", "rank", "mee6-import", "reset-xp"],
+        },
+        "reaction-roles": {
+            name: "Reaction Roles",
+            icon: "add_reaction",
+            description: "Allow users to self-assign roles, including verification roles.",
+            self_permissions: ["ManageRoles", "ManageMessages"],
+            commands: [],
         },
     },
     commands: {
