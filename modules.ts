@@ -167,6 +167,7 @@ export default {
         slowmode: {
             name: "Slowmode",
             icon: "speed",
+            bypass: true,
             permissions: "ManageChannels",
             self_permissions: "ManageChannels",
             description: "Set a channel's slowmode.",
