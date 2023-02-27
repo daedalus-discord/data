@@ -56,6 +56,12 @@ export default {
                 "notes",
             ],
         },
+        starboard: {
+            name: "Starboard",
+            icon: "star",
+            description: "Feature messages that receive a specified reaction.",
+            commands: [],
+        },
     },
     commands: {
         modules: { name: "Manage Modules", permissions: "admin", ghost: true },
