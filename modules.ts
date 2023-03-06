@@ -62,6 +62,13 @@ export default {
             description: "Feature messages that receive a specified reaction.",
             commands: [],
         },
+        automod: {
+            name: "Automod",
+            icon: "document_scanner",
+            description: "Automatically scan messages and edits for problematic content.",
+            self_permissions: ["ManageMessages", "ManageRoles", "ModerateMembers", "KickMembers", "BanMembers"],
+            commands: [],
+        },
     },
     commands: {
         modules: { name: "Manage Modules", permissions: "admin", ghost: true },
