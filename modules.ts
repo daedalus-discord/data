@@ -77,6 +77,14 @@ export default {
             commands: [],
             disable: true,
         },
+        "custom-roles": {
+            name: "Custom Roles",
+            icon: "dashboard_customize",
+            description: "Give boosters and other server supporters the ability to create custom roles.",
+            self_permissions: "ManageRoles",
+            commands: ["role"],
+            disable: true,
+        },
     },
     commands: {
         modules: { name: "Manage Modules", permissions: "admin", ghost: true },
@@ -205,6 +213,12 @@ export default {
             icon: "notes",
             permissions: "ModerateMembers",
             description: "Record mod notes for a user.",
+        },
+        role: {
+            name: "Custom Role",
+            icon: "format_color_fill",
+            self_permissions: "ManageRoles",
+            description: "Manage the user's custom role.",
         },
     },
 } as ModuleData;
