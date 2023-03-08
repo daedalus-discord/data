@@ -85,6 +85,13 @@ export default {
             commands: ["role"],
             disable: true,
         },
+        "stats-channels": {
+            name: "Stats Channels",
+            icon: "insights",
+            self_permissions: "ManageChannels",
+            description: "Keep track of server stats with automatically updating channels.",
+            commands: [],
+        },
     },
     commands: {
         modules: { name: "Manage Modules", permissions: "admin", ghost: true },
