@@ -69,6 +69,14 @@ export default {
             self_permissions: ["ManageMessages", "ManageRoles", "ModerateMembers", "KickMembers", "BanMembers"],
             commands: [],
         },
+        "sticky-roles": {
+            name: "Sticky Roles",
+            icon: "replay",
+            description: "Automatically re-add roles to members when they rejoin the server.",
+            self_permissions: "ManageRoles",
+            commands: [],
+            disable: true,
+        },
     },
     commands: {
         modules: { name: "Manage Modules", permissions: "admin", ghost: true },
