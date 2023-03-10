@@ -98,6 +98,14 @@ export default {
             description: "Automatically respond to certain messages.",
             commands: [],
         },
+        modmail: {
+            name: "Modmail",
+            icon: "mail",
+            self_permissions: ["CreatePublicThreads", "ManageThreads", "ManageChannels"],
+            description: "Allow users to contact staff through direct-messaging the bot.",
+            commands: ["modmail"],
+            disable: true,
+        },
     },
     commands: {
         modules: { name: "Manage Modules", permissions: "admin", ghost: true },
@@ -232,6 +240,11 @@ export default {
             icon: "format_color_fill",
             self_permissions: "ManageRoles",
             description: "Manage the user's custom role.",
+        },
+        modmail: {
+            name: "Modmail",
+            icon: "mail",
+            description: "Reply to or close modmail threads.",
         },
     },
 } as ModuleData;
