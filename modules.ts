@@ -92,6 +92,12 @@ export default {
             description: "Keep track of server stats with automatically updating channels.",
             commands: [],
         },
+        autoresponder: {
+            name: "Autoresponder",
+            icon: "bolt",
+            description: "Automatically respond to certain messages.",
+            commands: [],
+        },
     },
     commands: {
         modules: { name: "Manage Modules", permissions: "admin", ghost: true },
