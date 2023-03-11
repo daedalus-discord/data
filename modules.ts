@@ -106,6 +106,13 @@ export default {
             commands: ["modmail"],
             disable: true,
         },
+        tickets: {
+            name: "Tickets",
+            icon: "confirmation_number",
+            self_permissions: "ManageChannels",
+            description: "Allow users to contact staff by creating new private channels at the press of a button.",
+            commands: ["ticket"],
+        },
     },
     commands: {
         modules: { name: "Manage Modules", permissions: "admin", ghost: true },
@@ -245,6 +252,11 @@ export default {
             name: "Modmail",
             icon: "mail",
             description: "Reply to or close modmail threads.",
+        },
+        ticket: {
+            name: "Ticket",
+            icon: "confirmation_number",
+            description: "Manage tickets.",
         },
     },
 } as ModuleData;
