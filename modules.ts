@@ -113,6 +113,13 @@ export default {
             description: "Allow users to contact staff by creating new private channels at the press of a button.",
             commands: ["ticket"],
         },
+        nukeguard: {
+            name: "Nukeguard",
+            icon: "security",
+            self_permissions: "BanMembers",
+            description: "Anti-nuke features to guard against rogue or compromised mods/admins.",
+            commands: [],
+        },
     },
     commands: {
         modules: { name: "Manage Modules", permissions: "admin", ghost: true },
