@@ -153,6 +153,12 @@ export default {
             description: "Set up giveaways for server members.",
             commands: ["reroll"],
         },
+        reminders: {
+            name: "Reminders",
+            icon: "event",
+            description: "Set reminders to occur in your DMs.",
+            commands: ["reminder"],
+        },
     },
     commands: {
         modules: { name: "Manage Modules", permissions: "admin", ghost: true },
@@ -330,6 +336,11 @@ export default {
             icon: "replay",
             permissions: "ManageGuild",
             description: "Reroll a giveaway",
+        },
+        reminder: {
+            name: "Reminders",
+            icon: "event",
+            description: "Set, list, or manage your reminders.",
         },
     },
 } as ModuleData;
