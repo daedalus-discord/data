@@ -134,6 +134,12 @@ export default {
             commands: ["co-op"],
             disable: true,
         },
+        feeds: {
+            name: "Feeds",
+            icon: "rss_feed",
+            description: "Subscribe to live updates from various other websites.",
+            commands: ["feed"],
+        },
     },
     commands: {
         modules: { name: "Manage Modules", permissions: "admin", ghost: true },
@@ -294,6 +300,12 @@ export default {
             name: "Co-op",
             icon: "group",
             description: "Find a co-op group.",
+        },
+        feed: {
+            name: "Feed",
+            icon: "rss_feed",
+            permissions: "ManageGuild",
+            description: "Set up or manage feeds.",
         },
     },
 } as ModuleData;
