@@ -127,6 +127,13 @@ export default {
             commands: ["suggest", "suggestion"],
             disable: true,
         },
+        "co-op": {
+            name: "Co-op (Genshin Impact)",
+            icon: "handshake",
+            description: "Co-op group finding system for Genshin Impact.",
+            commands: ["co-op"],
+            disable: true,
+        },
     },
     commands: {
         modules: { name: "Manage Modules", permissions: "admin", ghost: true },
@@ -282,6 +289,11 @@ export default {
             icon: "forum",
             permissions: "ManageGuild",
             description: "Answer suggestions and view anonymous suggestion authors.",
+        },
+        "co-op": {
+            name: "Co-op",
+            icon: "group",
+            description: "Find a co-op group.",
         },
     },
 } as ModuleData;
