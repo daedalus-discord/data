@@ -120,6 +120,12 @@ export default {
             description: "Anti-nuke features to guard against rogue or compromised mods/admins.",
             commands: [],
         },
+        suggestions: {
+            name: "Suggestions",
+            icon: "feedback",
+            description: "Allow members to give feedback to the server.",
+            commands: ["suggest", "suggestion"],
+        },
     },
     commands: {
         modules: { name: "Manage Modules", permissions: "admin", ghost: true },
@@ -264,6 +270,17 @@ export default {
             name: "Ticket",
             icon: "confirmation_number",
             description: "Manage tickets.",
+        },
+        suggest: {
+            name: "Suggest",
+            icon: "feedback",
+            description: "Make a suggestion.",
+        },
+        suggestion: {
+            name: "Manage Suggestions",
+            icon: "forum",
+            permissions: "ManageGuild",
+            description: "Answer suggestions and view anonymous suggestion authors.",
         },
     },
 } as ModuleData;
