@@ -140,6 +140,13 @@ export default {
             description: "Subscribe to live updates from various other websites.",
             commands: ["feed"],
         },
+        count: {
+            name: "Counting Channels",
+            icon: "123",
+            self_permissions: "ManageMessages",
+            description: "Counting Channels",
+            commands: ["scoreboard"],
+        },
     },
     commands: {
         modules: { name: "Manage Modules", permissions: "admin", ghost: true },
@@ -306,6 +313,11 @@ export default {
             icon: "rss_feed",
             permissions: "ManageGuild",
             description: "Set up or manage feeds.",
+        },
+        scoreboard: {
+            name: "Scoreboard",
+            icon: "leaderboard",
+            description: "View the counting leaderboard.",
         },
     },
 } as ModuleData;
