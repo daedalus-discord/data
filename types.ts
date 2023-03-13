@@ -62,3 +62,12 @@ export type ContextData = {
     channel?: Channel;
     guild?: Guild;
 };
+
+export type Feed = {
+    type: "reddit";
+    key: string;
+    owner: string;
+    guild: string;
+    id: number;
+    channel: string;
+};
