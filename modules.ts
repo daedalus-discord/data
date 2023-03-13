@@ -147,6 +147,12 @@ export default {
             description: "Counting Channels",
             commands: ["scoreboard"],
         },
+        giveaways: {
+            name: "Giveaways",
+            icon: "celebration",
+            description: "Set up giveaways for server members.",
+            commands: ["reroll"],
+        },
     },
     commands: {
         modules: { name: "Manage Modules", permissions: "admin", ghost: true },
@@ -318,6 +324,12 @@ export default {
             name: "Scoreboard",
             icon: "leaderboard",
             description: "View the counting leaderboard.",
+        },
+        reroll: {
+            name: "Reroll",
+            icon: "replay",
+            permissions: "ManageGuild",
+            description: "Reroll a giveaway",
         },
     },
 } as ModuleData;
