@@ -163,7 +163,7 @@ export default {
             name: "Reports",
             icon: "report_problem",
             description: "Allow members to report users and messages to moderators.",
-            commands: ["Report", "Flag"],
+            commands: ["Report User", "Flag Message", "report", "flag"],
             disable: true,
         },
         polls: {
@@ -355,15 +355,25 @@ export default {
             icon: "event",
             description: "Set, list, or manage your reminders.",
         },
-        Report: {
+        "Report User": {
             name: "Report User",
             icon: "report",
-            description: "Report a user.",
+            description: "Report a user (user context menu command).",
         },
-        Flag: {
+        "Flag Message": {
             name: "Flag Message",
             icon: "flag",
-            description: "Flag a message.",
+            description: "Flag a message (message context menu command).",
+        },
+        report: {
+            name: "Report User",
+            icon: "report",
+            description: "Report a user (slash command).",
+        },
+        flag: {
+            name: "Flag Message",
+            icon: "flag",
+            description: "Flag a message (slash command).",
         },
         poll: {
             name: "Poll",
