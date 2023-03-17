@@ -163,7 +163,8 @@ export default {
             name: "Reports",
             icon: "report_problem",
             description: "Allow members to report users and messages to moderators.",
-            commands: ["report", "flag"],
+            commands: ["Report", "Flag"],
+            disable: true,
         },
     },
     commands: {
@@ -348,12 +349,12 @@ export default {
             icon: "event",
             description: "Set, list, or manage your reminders.",
         },
-        report: {
+        Report: {
             name: "Report User",
             icon: "report",
             description: "Report a user.",
         },
-        flag: {
+        Flag: {
             name: "Flag Message",
             icon: "flag",
             description: "Flag a message.",
