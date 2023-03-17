@@ -159,6 +159,12 @@ export default {
             description: "Set reminders to occur in your DMs.",
             commands: ["reminder"],
         },
+        reports: {
+            name: "Reports",
+            icon: "report_problem",
+            description: "Allow members to report users and messages to moderators.",
+            commands: ["report", "flag"],
+        },
     },
     commands: {
         modules: { name: "Manage Modules", permissions: "admin", ghost: true },
@@ -341,6 +347,16 @@ export default {
             name: "Reminders",
             icon: "event",
             description: "Set, list, or manage your reminders.",
+        },
+        report: {
+            name: "Report User",
+            icon: "report",
+            description: "Report a user.",
+        },
+        flag: {
+            name: "Flag Message",
+            icon: "flag",
+            description: "Flag a message.",
         },
     },
 } as ModuleData;
