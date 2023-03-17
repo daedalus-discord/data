@@ -166,6 +166,12 @@ export default {
             commands: ["Report", "Flag"],
             disable: true,
         },
+        polls: {
+            name: "Polls",
+            icon: "poll",
+            description: "Yes/No and multiple-choice polls.",
+            commands: ["poll"],
+        },
     },
     commands: {
         modules: { name: "Manage Modules", permissions: "admin", ghost: true },
@@ -358,6 +364,12 @@ export default {
             name: "Flag Message",
             icon: "flag",
             description: "Flag a message.",
+        },
+        poll: {
+            name: "Poll",
+            icon: "poll",
+            permissions: "ManageGuild",
+            description: "Create a poll.",
         },
     },
 } as ModuleData;
