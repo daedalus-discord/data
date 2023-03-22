@@ -197,6 +197,12 @@ export default {
                 "snowflake",
             ],
         },
+        "sticky-messages": {
+            name: "Sticky Messages",
+            icon: "sticky_note_2",
+            description: "Set messages to stick to the bottom of a channel.",
+            commands: ["stick", "unstick", "sticklist"],
+        },
     },
     commands: {
         modules: { name: "Manage Modules", permissions: "admin", ghost: true },
@@ -481,6 +487,24 @@ export default {
             name: "Snowflake",
             icon: "ac_unit",
             description: "Deconstruct a Discord snowflake (ID).",
+        },
+        stick: {
+            name: "Stick",
+            icon: "label",
+            permissions: "ManageChannels",
+            description: "Set the channel's sticky message.",
+        },
+        unstick: {
+            name: "Unstick",
+            icon: "label_off",
+            permissions: "ManageChannels",
+            description: "Remove the channel's sticky message.",
+        },
+        sticklist: {
+            name: "List Sticky Message",
+            icon: "list",
+            permissions: "ManageChannels",
+            description: "List the server's sticky messages.",
         },
     },
 } as ModuleData;
