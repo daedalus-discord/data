@@ -203,6 +203,12 @@ export default {
             description: "Set messages to stick to the bottom of a channel.",
             commands: ["stick", "unstick", "sticklist"],
         },
+        fun: {
+            name: "Fun",
+            icon: "attractions",
+            description: "Fun commands. Mostly pointless/unimportant.",
+            commands: ["random"],
+        },
     },
     commands: {
         modules: { name: "Manage Modules", permissions: "admin", ghost: true },
@@ -505,6 +511,11 @@ export default {
             icon: "list",
             permissions: "ManageChannels",
             description: "List the server's sticky messages.",
+        },
+        random: {
+            name: "Random",
+            icon: "random",
+            description: "Random-related functions.",
         },
     },
 } as ModuleData;
