@@ -170,7 +170,7 @@ export default {
             name: "Polls",
             icon: "poll",
             description: "Yes/No and multiple-choice polls.",
-            commands: ["poll"],
+            commands: ["poll", "set-qotd-ping"],
         },
     },
     commands: {
@@ -380,6 +380,12 @@ export default {
             icon: "poll",
             permissions: "ManageGuild",
             description: "Create a poll.",
+        },
+        "set-qotd-ping": {
+            name: "Set QOTD Ping",
+            icon: "alternate_email",
+            permissions: "ManageGuild",
+            description: "Set the role that is pinged when auto-posting QOTDs.",
         },
     },
 } as ModuleData;
