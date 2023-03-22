@@ -172,6 +172,12 @@ export default {
             description: "Yes/No and multiple-choice polls.",
             commands: ["poll", "set-qotd-ping"],
         },
+        highlights: {
+            name: "Highlights",
+            icon: "notifications",
+            description: "Receive DM notifications for messages with certain terms.",
+            commands: ["highlight"],
+        },
     },
     commands: {
         modules: { name: "Manage Modules", permissions: "admin", ghost: true },
@@ -386,6 +392,11 @@ export default {
             icon: "alternate_email",
             permissions: "ManageGuild",
             description: "Set the role that is pinged when auto-posting QOTDs.",
+        },
+        highlight: {
+            name: "Highlight",
+            icon: "notifications",
+            description: "Manage your highlights.",
         },
     },
 } as ModuleData;
