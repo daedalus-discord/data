@@ -53,6 +53,23 @@ export default {
             "You can also ratelimit bans and prevent a user from banning (or kicking, if selected) people too quickly (they will receive a warning about this first). Finally, you can select which roles people may add/remove. Be careful that you do not disallow any roles that are available via your server's onboarding flow, as that would cause regular members to be banned.",
         suggestions:
             "This module allows users to submit suggestions to the server. You can set suggestions to be anonymous in which case people who have permission to manage suggestions can click a button to view the author.",
+        "co-op":
+            "This module allows you to configure a co-op system for Genshin Impact. Users will be able to create help requests. This essentially allows you to let users ping helper roles without giving them direct permission and streamlines the process.",
+        feeds: "This module lets you set up feeds to post to a channel from an external resource (currently supported: reddit)",
+        count: "This module allows you to set up count channels in which users can only send messages that are the next number to be counted. A scoreboard tracks how many times each person has counted. Each count channel has a next value (the next number it is expecting to see) and an interval (how much the number changes each time). By default, double-counting is enabled, but you can enable it to allow the same person to send more than one consecutive number.",
+        giveaways:
+            "This module allows you to set up giveaways which let users join for a chance to win any prize you choose, and does the random selection for you. You can require users to have all or any of a list of roles, block roles, and set bypass roles to ignore both restrictions. You can also give select roles more entries.",
+        reminders:
+            "This module allows users to set reminders for themselves. If this command is disabled, users can always still use it in the bot's DMs.",
+        reports:
+            "This module allows users to report messages or users to mods. You can configure a channel to report to. If this channel is public, you may wish to make reporters anonymous, in which case you can specify roles that are allowed to view the author of an anonymous report.",
+        polls: "This module lets you post polls for users to respond (anonymously) to.",
+        highlights:
+            "This module allows users to set highlighted phrases or conditions for the bot to DM them to alert them of something that happened in a channel they can see.",
+        utility: "This module contains utility features, both for server moderation and for regular users to user.",
+        "sticky-messages":
+            "This module allows you to set a message to be constantly reposted to the bottom of a channel so users see it more visibly.",
+        fun: "This module offers some purely for-fun commands.",
     },
     commands: {
         settings: {
@@ -248,6 +265,258 @@ export default {
                 [
                     "/suggestion approve|consider|deny|implement <id> [explanation] [dm] [anon]",
                     "Update the status of a suggestion to approved, considered, denied, or implemented.</p> <ul><li>Set <b>explanation</b> to add context or details.</li><li>Set <b>dm</b> to notify the suggestion author.</li><li>Set <b>anon</b> to hide your identity from both the suggestion post and the DM notification if applicable.</li></ul>",
+                ],
+            ],
+        },
+        "co-op": {
+            syntaxes: [
+                [
+                    "/co-op [query] [world-level] [region]",
+                    "Ask for co-op help. Set <b>query</b> to include details about your request. Setting the world level and region is optional if you have exactly one of the configured roles. You can set these to override the values obtained from detecting your roles.",
+                ],
+            ],
+        },
+        feed: {
+            syntaxes: [
+                [
+                    "/feed add reddit <subreddit> <channel>",
+                    "Set up a feed to post from the designated subreddit to the designated channel. Posts only happen at most once every 10 seconds, so if the subreddit receives posts faster than that, some will be skipped to keep the feed updated without hitting any ratelimits.",
+                ],
+                ["/feed list", "List this server's feeds."],
+                ["/feed remove <id>", "Remove a feed by its ID."],
+            ],
+        },
+        scoreboard: {
+            syntaxes: [
+                [
+                    "/scoreboard [channel]",
+                    "View the count scoreboard either for a specific channel or for the whole server combined.",
+                ],
+            ],
+        },
+        reroll: { syntaxes: [["/reroll <id>", "Reroll a giveaway by ID, completely recalculating its winners."]] },
+        reminder: {
+            syntaxes: [
+                [
+                    "/reminder set <duration> [query]",
+                    "Set a reminder to DM yourself after a specified duration, optionally including a reminder message. You will be linked back to where you created the reminder in case you need context.",
+                ],
+                [
+                    "/reminder list [all]",
+                    "List your reminders. If <b>all</b> is true or you use this command in DMs, it will list reminders everywhere; otherwise, it will only list reminders you set in the current server.",
+                ],
+                [
+                    "/reminder cancel <id>",
+                    "Cancel a reminder by ID. The ID is specific to you and is global, so you can cancel a DM from a different server than where you set it.",
+                ],
+            ],
+        },
+        "Report User": {
+            syntaxes: [
+                [
+                    "Report User",
+                    "Right-click a user and select <b>Apps &gt; Report User</b>. You must specify a reason.",
+                ],
+            ],
+        },
+        "Flag Message": {
+            syntaxes: [
+                [
+                    "Flag Message",
+                    "Right-click a message and select <b>Apps &gt; Flag Message</b>. You may optionally specify a reason.",
+                ],
+            ],
+        },
+        report: { syntaxes: [["/report <user>", "Report a user. You must specify a reason in the pop-up modal."]] },
+        flag: {
+            syntaxes: [
+                [
+                    "/flag <message>",
+                    "Flag a message (by URL). You may optionally specify a reason in the pop-up modal.",
+                ],
+            ],
+        },
+        poll: {
+            syntaxes: [
+                [
+                    "/poll yes-no [allow-neutral] [create-thread] [duration] [qotd]",
+                    "Create a yes/no poll. If <b>allow-neutral</b> is set, users can also vote for a neutral option. Results are displayed as a proportion bar showing green (yes), white (neutral), and red (no). </p><p>" +
+                        "You will be asked to enter the question in a pop-up modal.",
+                ],
+                [
+                    "/poll binary <left-label> <right-label> [allow-neutral] [create-thread] [duration] [qotd]",
+                    "Create a binary poll. The left and right label options refer to what text will show up on the voting buttons. If <b>allow-neutral</b> is set, users can also vote for a neutral option. Results are displayed as a proportion bar showing blue (left), white (neutral), and green (right). </p><p>" +
+                        "You will be asked to enter the question and the full left and right options in a pop-up modal.",
+                ],
+                [
+                    "/poll multi [allow-multi] [create-thread] [duration] [qotd]",
+                    "Create a multiple-choice poll. If <b>allow-multi</b> is set, users can vote for multiple options; otherwise, they can only select one. Results are displayed as a list of options in the order you specify with their vote counts and percentage approvals. </p><p>" +
+                        "You will be asked to enter the question and the list of options in a pop-up modal.",
+                ],
+            ],
+            footer: "For all types, if <b>create-thread</b> is set, a thread will be created on the poll message with that name. If <b>duration</b> is set, the poll will be posted after the specified delay. If <b>qotd</b> is set, the pop-up modal will also ask you for a QOTD and it will post it and create a thread under it using the <b>qotd</b> option as the name.",
+        },
+        "set-qotd-ping": {
+            syntaxes: [
+                [
+                    "/set-qotd-ping [role]",
+                    "Set or unset a role to be pinged whenever a QOTD is posted by <code>/poll</code>.",
+                ],
+            ],
+        },
+        highlight: {
+            syntaxes: [
+                [
+                    "/highlight add <word-or-phrase>",
+                    "Highlight a word or phrase so the bot will alert you if it is posted.",
+                ],
+                ["/highlight list", "List your highlighted words/phrases and show your highlight settings."],
+                ["/highlight remove <word-or-phrase>", "Remove a word/phrase from your highlights."],
+                ["/highlight clear", "Remove all of your highlighted words/phrases."],
+                [
+                    "/highlight [un]block channel|user <channel / user>",
+                    "Block or unblock highlight alerts from a channel / user.",
+                ],
+                ["/highlight block list", "List your highlight-blocked channels and users."],
+                ["/highlight unblock all", "Unblock all channels and users."],
+                [
+                    "/highlight cooldown <duration>",
+                    "Set the minimum amount of time between consecutive highlights from the same channel.",
+                ],
+                [
+                    "/highlight delay <duration>",
+                    "Set the minimum amount of time to wait after your last message before highlighting you in that channel.",
+                ],
+                [
+                    "/highlight replies <highlight>",
+                    "Enable/disable highlighting for replies to your messages that had pings turned off.",
+                ],
+            ],
+        },
+        "emoji-roles": {
+            syntaxes: [
+                ["/emoji-roles view <emoji>", "View the allowed roles for an emoji."],
+                ["/emoji-roles reset <emoji>", "Reset permissions for an emoji, allowing all users to use it."],
+                [
+                    "/emoji-roles enable <emoji> <roles...>",
+                    "Enable an emoji for a role / multiple roles. If the emoji was previously not restricted, it will become restricted to anyone without these roles.",
+                ],
+                [
+                    "/emoji-roles disable <emoji> <roles...>",
+                    "Disable an emoji for a role / multiple roles. If you disable it for all roles, it becomes available for everyone.",
+                ],
+            ],
+            footer: "This is a built-in Discord feature that you cannot control from the client itself and most bots do not support. This works everywhere, not just in your server - users will be unable to see the emoji in their emoji selector and if they try pasting the code directly, it will show up as <code>:EmojiName:</code>, just like if they did not have Nitro.",
+        },
+        help: { syntaxes: [["/help", "View bot help including some important links."]] },
+        info: {
+            syntaxes: [
+                ["/info channel <channel>", "View channel info."],
+                [
+                    "/info invite <invite>",
+                    "View invite info, including who created it, where it goes, and its expiration. Additionally, if possible, it will also show server info.",
+                ],
+                ["/info role <role>", "View role info, including its permissions, display settings, and position."],
+                [
+                    "/info server [server]",
+                    "View server info, by default showing the current server. IF the bot is not in the server, it will attempt to fetch some basic data through your account through OAuth2 (you must log in on the dashboard to make this possible).",
+                ],
+                [
+                    "/info user <user>",
+                    "View user info, including their creation and join date and permissions in the server. If you have the appropriate permissions, you can also see if they are banned or not.",
+                ],
+            ],
+        },
+        avatar: {
+            syntaxes: [
+                ["/avatar <user>", "View a user's avatar, showing both their user and server avatar if applicable."],
+            ],
+        },
+        roles: {
+            syntaxes: [
+                ["/roles add <user> <roles...>", "Add a role / multiple roles to a user."],
+                ["/roles remove <user> <roles...>", "Remove a role / multiple roles from a user."],
+            ],
+            footer: "This command will check role hierarchy, so users cannot use this command to add/remove roles they would not be able to with the Manage Roles permission. You can also restrict which roles can be added/removed with this command.",
+        },
+        format: {
+            syntaxes: [
+                [
+                    "/format channel <channel>",
+                    "Post the format to display a channel mention (<code>&lt;#ID&gt;</code>).",
+                ],
+                [
+                    "/format mentionable <user/role>",
+                    "Post the format to display a user mention (<code>&lt;@ID&gt;</code>) or role mention (<code>&lt;@&amp;ID&gt;</code>).",
+                ],
+                [
+                    "/format emoji <emoji>",
+                    "Post the format to display an emoji (<code>&lt;:name:ID&gt;</code> for static and <code>&lt;a:name:ID&gt;</code> for animated). The bot will give you an autocomplete menu of the current server's emoji, so you can use this even without Nitro.",
+                ],
+            ],
+        },
+        say: {
+            syntaxes: [
+                [
+                    "/say <message>",
+                    "The bot will say your message as a regular message (i.e. it will respond secretly to your command, so other users cannot see who called this).",
+                ],
+            ],
+            footer: "Use of this command for anything reasonably determined as malicious (e.g. trying to impersonate Discord staff, scamming users, posting abusive content) is subject to termination of your right to use Daedalus and a potential report to Discord.",
+        },
+        code: {
+            syntaxes: [
+                [
+                    "/code <code>",
+                    "Post the code in a plain-text message (for easy copying for mobile users) and display a link to the Genshin Impact gifting center with the code auto-filled.",
+                ],
+            ],
+        },
+        qr: {
+            syntaxes: [
+                [
+                    "/qr <text>",
+                    "Encode anything as a QR code. This is usually used for links but can be used for any text.",
+                ],
+            ],
+        },
+        tex: { syntaxes: [["/tex", "Open a pop-up modal to insert and render LaTeX into a PNG."]] },
+        convert: {
+            syntaxes: [
+                [
+                    "/convert <amount> <source> <target>",
+                    "Convert between units or currencies. Currency values are only updated daily, so they are not guaranteed to be accurate. Do not use this command for crucial measurements as we cannot guarantee correctly and are not responsible for any injury or loss of life resulting from faulty conversions.",
+                ],
+            ],
+        },
+        snowflake: {
+            syntaxes: [
+                [
+                    "/snowflake <snowflake>",
+                    "Deconstruct a snowflake (Twitter's ID format which Discord also uses). If you have an ID but don't know what type of object it is (channel, role, user, etc.), you can still obtain its creation date with this.",
+                ],
+            ],
+        },
+        stick: {
+            syntaxes: [
+                [
+                    "/stick [seconds]",
+                    "Set the sticky message. A pop-up modal will appear to let you enter multi-line messages. The message will be reposted at most once every <b>seconds</b> (default 4) seconds.",
+                ],
+            ],
+        },
+        unstick: { syntaxes: [["/unstick", "Remove this channel's sticky message."]] },
+        sticklist: { syntaxes: [["/sticklist", "List this server's sticky messages."]] },
+        random: {
+            syntaxes: [
+                [
+                    "/random choose <options...>",
+                    "Randomly choose one of the listed options. These do not have to be unique, so you can do <code>/random choose 1 1 1 2</code> for a 75% chance to choose <code>1</code>.",
+                ],
+                ["/random flip [heads-chance]", "Flip a coin. You may optionally bias the coin."],
+                [
+                    "/random roll [config]",
+                    "Roll a die. You may optionally configure the dice using D&amp;D format; for example, <code>1d6 + 2d10 - 2</code> will roll a 6-sided die and two 10-sided dice and then add them all and subtract 2 from the result.",
                 ],
             ],
         },
