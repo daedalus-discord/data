@@ -514,7 +514,7 @@ export default {
         },
         random: {
             name: "Random",
-            icon: "random",
+            icon: "shuffle",
             description: "Random-related functions.",
         },
     },

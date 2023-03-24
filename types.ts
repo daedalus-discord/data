@@ -27,6 +27,11 @@ export type ModuleData = {
     >;
 };
 
+export type Docs = {
+    modules: Record<string, string>;
+    commands: Record<string, { syntaxes: [string, string][]; footer?: string }>;
+};
+
 export type CustomMessageComponent = (string | number | boolean | CustomMessageComponent)[];
 export type Interpolation = (string | CustomMessageComponent)[];
 export type CustomMessage = {
