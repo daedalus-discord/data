@@ -125,7 +125,6 @@ export default {
             icon: "feedback",
             description: "Allow members to give feedback to the server.",
             commands: ["suggest", "suggestion"],
-            disable: true,
         },
         "co-op": {
             name: "Co-op (Genshin Impact)",
