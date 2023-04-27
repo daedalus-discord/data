@@ -131,7 +131,6 @@ export default {
             icon: "handshake",
             description: "Co-op group finding system for Genshin Impact.",
             commands: ["co-op"],
-            disable: true,
         },
         feeds: {
             name: "Feeds",
