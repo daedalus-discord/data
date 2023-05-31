@@ -222,11 +222,13 @@ export default {
             name: "Top",
             icon: "leaderboard",
             description: "Get top users by XP.",
+            ghost: true,
         },
         rank: {
             name: "Rank",
             icon: "military_tech",
             description: "Get a user's XP and rank.",
+            ghost: true,
         },
         "mee6-import": {
             name: "MEE6 XP Import",
@@ -302,6 +304,7 @@ export default {
             icon: "history",
             permissions: "ModerateMembers",
             description: "View a user's history.",
+            ghost: true,
         },
         "delete-warn": {
             name: "Delete History Entry",
@@ -341,6 +344,7 @@ export default {
             icon: "format_color_fill",
             self_permissions: "ManageRoles",
             description: "Manage the user's custom role.",
+            ghost: true,
         },
         modmail: {
             name: "Modmail",
@@ -356,6 +360,7 @@ export default {
             name: "Suggest",
             icon: "feedback",
             description: "Make a suggestion.",
+            ghost: true,
         },
         suggestion: {
             name: "Manage Suggestions",
@@ -367,6 +372,7 @@ export default {
             name: "Co-op",
             icon: "group",
             description: "Find a co-op group.",
+            ghost: true,
         },
         feed: {
             name: "Feed",
@@ -378,6 +384,7 @@ export default {
             name: "Scoreboard",
             icon: "leaderboard",
             description: "View the counting leaderboard.",
+            ghost: true,
         },
         reroll: {
             name: "Reroll",
@@ -389,26 +396,31 @@ export default {
             name: "Reminders",
             icon: "event",
             description: "Set, list, or manage your reminders.",
+            ghost: true,
         },
         "Report User": {
             name: "Report User",
             icon: "report",
             description: "Report a user (user context menu command).",
+            ghost: true,
         },
         "Flag Message": {
             name: "Flag Message",
             icon: "flag",
             description: "Flag a message (message context menu command).",
+            ghost: true,
         },
         report: {
             name: "Report User",
             icon: "report",
             description: "Report a user (slash command).",
+            ghost: true,
         },
         flag: {
             name: "Flag Message",
             icon: "flag",
             description: "Flag a message (slash command).",
+            ghost: true,
         },
         poll: {
             name: "Poll",
@@ -426,6 +438,7 @@ export default {
             name: "Highlight",
             icon: "notifications",
             description: "Manage your highlights.",
+            ghost: true,
         },
         "emoji-roles": {
             name: "Emoji Roles",
@@ -438,16 +451,19 @@ export default {
             name: "Help",
             icon: "help",
             description: "Get help for the bot.",
+            ghost: true,
         },
         info: {
             name: "Info",
             icon: "info",
             description: "Get info for a user, role, channel, server, or invite.",
+            ghost: true,
         },
         avatar: {
             name: "Avatar",
             icon: "account_box",
             description: "View a user's avatar.",
+            ghost: true,
         },
         roles: {
             name: "Roles",
@@ -460,6 +476,7 @@ export default {
             name: "Format",
             icon: "text_format",
             description: "Convert a Discord message element into its source text.",
+            ghost: true,
         },
         say: {
             name: "Say",
@@ -471,26 +488,31 @@ export default {
             name: "Code",
             icon: "redeem",
             description: "Display a Genshin Impact gift code.",
+            ghost: true,
         },
         qr: {
             name: "QR",
             icon: "qr_code_scanner",
             description: "Convert any text into a QR code.",
+            ghost: true,
         },
         tex: {
             name: "Render LaTeX",
             icon: "image",
             description: "Render LaTeX to a PNG file.",
+            ghost: true,
         },
         convert: {
             name: "Convert Units",
             icon: "currency_exchange",
             description: "Convert between common units or between currencies.",
+            ghost: true,
         },
         snowflake: {
             name: "Snowflake",
             icon: "ac_unit",
             description: "Deconstruct a Discord snowflake (ID).",
+            ghost: true,
         },
         stick: {
             name: "Stick",
@@ -514,6 +536,7 @@ export default {
             name: "Random",
             icon: "shuffle",
             description: "Random-related functions.",
+            ghost: true,
         },
     },
 } as ModuleData;
