@@ -193,6 +193,7 @@ export default {
                 "tex",
                 "convert",
                 "snowflake",
+                "role-accessibility",
             ],
         },
         "sticky-messages": {
@@ -512,6 +513,13 @@ export default {
             name: "Snowflake",
             icon: "ac_unit",
             description: "Deconstruct a Discord snowflake (ID).",
+            ghost: true,
+        },
+        "role-accessibility": {
+            name: "Role Accessibility",
+            icon: "accessibility",
+            permissions: "ManageRoles",
+            description: "Check if role colors' contrast meets accessibility standards.",
             ghost: true,
         },
         stick: {
