@@ -497,6 +497,14 @@ export default {
                 ],
             ],
         },
+        "role-accessibility": {
+            syntaxes: [
+                [
+                    "/role-accessibility",
+                    "Check all roles in the server for if their color meets contrast standards with both the light and dark mode background. This uses WCAG 2.0 and requires roles to have a contrast of at least 4.5."
+                ]
+            ]
+        },
         stick: {
             syntaxes: [
                 [
