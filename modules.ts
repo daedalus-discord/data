@@ -518,6 +518,7 @@ export default {
         "role-accessibility": {
             name: "Role Accessibility",
             icon: "accessibility",
+            permissions: "ManageRoles",
             description: "Check if role colors' contrast meets accessibility standards.",
             ghost: true,
         },
