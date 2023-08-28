@@ -194,6 +194,7 @@ export default {
                 "convert",
                 "snowflake",
                 "role-accessibility",
+                "Extract IDs",
             ],
         },
         "sticky-messages": {
@@ -520,6 +521,12 @@ export default {
             icon: "accessibility",
             permissions: "ManageRoles",
             description: "Check if role colors' contrast meets accessibility standards.",
+            ghost: true,
+        },
+        "Extract IDs": {
+            name: "Extract IDs",
+            icon: "123",
+            description: "extract all IDs from a message for easier copying",
             ghost: true,
         },
         stick: {
